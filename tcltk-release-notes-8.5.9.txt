@@ -1,0 +1,136 @@
+Tcl/Tk 8.5.9 Release Announcement
+September 8, 2010
+
+The Tcl Core Team is pleased to announce the 8.5.9 releases of the Tcl
+dynamic language and the Tk toolkit.  This is the ninth patch release
+of Tcl/Tk 8.5.  More details can be found below.  We would like to
+express our gratitude to all those who submit bug reports and patches.
+This information is invaluable in enabling us to identify and eliminate
+problems in the core.
+
+Where to get the new releases:
+------------------------------
+
+Tcl/Tk 8.5.9 sources are freely available as open source from the
+Tcl Developer Xchange web site at:
+
+        http://www.tcl.tk/software/tcltk/8.5.html
+
+This web page also contains additional information about the releases,
+including new features and notes about installing and compiling the
+releases.  Sources are always available from the Tcl SourceForge
+project's file distribution area:
+
+        http://sourceforge.net/project/showfiles.php?group_id=10894
+
+Binaries for most major platforms are available from:
+
+        http://www.activestate.com/Tcl
+
+For additional information:
+---------------------------
+
+Please visit the Tcl Developer Xchange web site:
+
+        http://www.tcl.tk/
+
+This site contains a variety of information about Tcl/Tk in general, the
+core Tcl and Tk distributions, Tcl development tools, and much more.
+
+Summary of Changes since Tcl/Tk 8.5.8:
+--------------------------------------
+
+The following were the main changes in Tcl/Tk 8.5.9.  A complete list
+can be found in the changes file at the root of the source tree.  The
+more complete ChangeLog is also included with each source release.  This
+is a patch release, so it primarily includes bug fixes and corrections
+to erratic behavior.  Below are only the most notable changes.
+
+   * TIP 359: new X11 option: [wm attributes -type]
+	- stops inappropriate Compiz animation of Tk menu & combobox.
+
+   * TIP 360: modernize menus on X11.
+
+   * New widget [ttk::spinbox].
+
+   * [lappend arr(elem)] no longer fires read traces as it inconsistently
+     has in some situations, but not in others.
+        *** POTENTIAL INCOMPATIBILITY ***
+
+   * [tk_getOpenFile] on Windows: unlimited multiple-file selection.
+
+   * [load] uses LOAD_WITH_ALTERED_SEARCH_PATH for fewer surprises when
+     bringing in DLLs via dependencies on Windows.
+        *** POTENTIAL INCOMPATIBILITY ***
+
+   * Updated [send] security rules to current Ubuntu/Fedora conventions.
+
+   * Fixed [wm iconphoto] on LP64 unix systems.
+
+   * [chan copy] of more than 2**31 bytes is now possible.
+
+   * min() and max() functions now work in safe interps.
+
+   * [$menu delete $tooBig end] now properly a no-op.
+
+   * canvas items now properly updated when canvas state changes.
+
+   * Revised [ttk::sizegrip] to accommodate Compiz.
+
+   * Revised default Text bindings for <Delete> and <BackSpace> to account
+     for insertion point relationship to the selection.
+
+   * Corrected result of [tcl::mathfunc::abs 0.0].
+
+   * New version 1.432 of msgcat package.
+
+   * New version 1.0.9 of platform package.
+
+   * New version 0.8.6 of tile package.
+
+   * Changes to support building with MSVC++ 2010.
+
+   * Prevent race condition in some XIM implementations.
+
+   * Fixed bad results from [file rootname].
+
+   * Prevent consumption of all memory when [chan copy] copies to slow channel.
+
+   * [wm transient] now works even with withdrawn windows.
+
+   * $DISPLAY can now contain "::".
+
+   * Restored compatibility of [entry] validation with Itcl variable scope.
+
+   * Fixed line-sensitive matching by [regexp].
+
+   * Fixed memory corruption in complex canvas tag searches.
+
+   * Fixed crash in encoding finalization.
+
+   * Fixed crashes in widget destruction.
+
+   * Fixed crash in GetFontFamilyName().
+
+   * Fixed crash in menu deletion.
+
+   * Fixed crash in peer text dump.
+
+   * Fixed crash when bind scripts are empty.
+
+   * Fixed crash in unset traces during [array unset].
+
+   * Fixed crash deleting vars during callframe pop.
+
+   * Fixed crash in [open |noSuchFile rb].
+
+   * Fixed crash in [chan postevent].
+
+   * Fixed programming error in [clock format] in he_IL locale.
+
+   * Safe Base and Safe Tk rewrites
+
+--
+Tcl Core Team and Maintainers
+Don Porter, Tcl Core Release Manager
+
