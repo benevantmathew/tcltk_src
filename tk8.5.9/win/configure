@@ -8,7 +8,8 @@
 ## --------------------- ##
 ## M4sh Initialization.  ##
 ## --------------------- ##
-
+windres_var=x86_64-w64-mingw32-windres
+ranlib_var=x86_64-w64-mingw32-ranlib
 # Be Bourne compatible
 if test -n "${ZSH_VERSION+set}" && (emulate sh) >/dev/null 2>&1; then
   emulate sh
@@ -2816,7 +2817,7 @@ do
   test -z "$as_dir" && as_dir=.
   for ac_exec_ext in '' $ac_executable_extensions; do
   if $as_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_prog_RANLIB="ranlib"
+    ac_cv_prog_RANLIB="$ranlib_var"
     echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -2834,8 +2835,8 @@ else
 echo "${ECHO_T}no" >&6
 fi
 
-    # Extract the first word of "windres", so it can be a program name with args.
-set dummy windres; ac_word=$2
+    # Extract the first word of "$windres_var", so it can be a program name with args.
+set dummy $windres_var; ac_word=$2
 echo "$as_me:$LINENO: checking for $ac_word" >&5
 echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6
 if test "${ac_cv_prog_RC+set}" = set; then
@@ -2851,7 +2852,7 @@ do
   test -z "$as_dir" && as_dir=.
   for ac_exec_ext in '' $ac_executable_extensions; do
   if $as_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_prog_RC="windres"
+    ac_cv_prog_RC="$windres_var"
     echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -2876,13 +2877,13 @@ echo "$as_me: error: Required archive tool 'ar' not found on PATH." >&2;}
    { (exit 1); exit 1; }; }
     fi
     if test "${RANLIB}" = "" ; then
-	{ { echo "$as_me:$LINENO: error: Required archive index tool 'ranlib' not found on PATH." >&5
-echo "$as_me: error: Required archive index tool 'ranlib' not found on PATH." >&2;}
+	{ { echo "$as_me:$LINENO: error: Required archive index tool '$ranlib_var' not found on PATH." >&5
+echo "$as_me: error: Required archive index tool '$ranlib_var' not found on PATH." >&2;}
    { (exit 1); exit 1; }; }
     fi
     if test "${RC}" = "" ; then
-	{ { echo "$as_me:$LINENO: error: Required resource tool 'windres' not found on PATH." >&5
-echo "$as_me: error: Required resource tool 'windres' not found on PATH." >&2;}
+	{ { echo "$as_me:$LINENO: error: Required resource tool '$windres_var' not found on PATH." >&5
+echo "$as_me: error: Required resource tool '$windres_var' not found on PATH." >&2;}
    { (exit 1); exit 1; }; }
     fi
 fi
@@ -3239,9 +3240,9 @@ fi
 
     SHLIB_SUFFIX=".dll"
 
-    # Check for a bug in gcc's windres that causes the
+    # Check for a bug in gcc's $windres_var that causes the
     # compile to fail when a Windows native path is
-    # passed into windres. The mingw toolchain requires
+    # passed into $windres_var. The mingw toolchain requires
     # Windows native paths while Cygwin should work
     # with both. Avoid the bug by passing a POSIX
     # path when using the Cygwin toolchain.
@@ -3252,8 +3253,8 @@ fi
 	echo "101 \"name\"" >> $conftest
 	echo "END" >> $conftest
 
-	echo "$as_me:$LINENO: checking for Windows native path bug in windres" >&5
-echo $ECHO_N "checking for Windows native path bug in windres... $ECHO_C" >&6
+	echo "$as_me:$LINENO: checking for Windows native path bug in $windres_var" >&5
+echo $ECHO_N "checking for Windows native path bug in $windres_var... $ECHO_C" >&6
 	cyg_conftest=`$CYGPATH $conftest`
 	if { ac_try='$RC -o conftest.res.o $cyg_conftest'
   { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
